@@ -1,0 +1,82 @@
+URL Dataset : https://www.kaggle.com/datasets/salahuddinahmedshuvo/grocery-inventory-and-sales-dataset/data
+
+DDl & DML Syntax dengan Python  :
+
+import psycopg2
+import pandas as pd
+
+db_user = "airflow"
+db_password = "airflow" 
+db_host = "localhost"  
+db_port = "5434"  
+
+connection = psycopg2.connect(
+    user=db_user,
+    password=db_password,
+    host=db_host,
+    port=db_port
+)
+
+cursor = connection.cursor()
+
+Here’s the complete Python code using psycopg2 with the provided PostgreSQL connection setup to create the table table_m3:
+import psycopg2
+
+# Replace these parameters with your actual database credentials
+db_user = "airflow"
+db_password = "airflow"  # Use your own password
+db_host = "localhost"  # Usually "localhost" if running locally
+db_port = "5434"  # Default is 5432
+
+try:
+    # Establish a connection to the database
+    connection = psycopg2.connect(
+        user=db_user,
+        password=db_password,
+        host=db_host,
+        port=db_port
+    )
+
+    cursor = connection.cursor()
+
+    create_table_query = """
+    CREATE TABLE table_m3 (
+        Product_ID VARCHAR(50) PRIMARY KEY,
+        Product_Name VARCHAR(100),
+        Category VARCHAR(100),
+        Supplier_ID VARCHAR(50),
+        Supplier_Name VARCHAR(50),
+        Stock_Quantity INTEGER,
+        Reorder_Level INTEGER,
+        Reorder_Quantity INTEGER,
+        Unit_Price VARCHAR(50),
+        Date_Received VARCHAR(50),
+        Last_Order_Date VARCHAR(50),
+        Expiration_Date VARCHAR(50),
+        Warehouse_Location VARCHAR(100),
+        Sales_Volume INTEGER,
+        Inventory_Turnover_Rate INTEGER,
+        Status VARCHAR(50)
+    )
+    """
+
+    cursor.execute(create_table_query)
+    connection.commit()
+
+df = pd.read_csv(r'C:\temp\P2M3_hafizal_shakur_data_raw.csv') # sesuaikan directory file csv
+tuples = [tuple(x) for x in df.to_numpy()]
+cols = ','.join(list(df.columns))
+
+
+insert_query = '''
+INSERT INTO table_m3 ("Product_ID", "Product_Name", "Category", "Supplier_ID", "Supplier_Name", "Stock_Quantity",
+"Reorder_Level", "Reorder_Quantity", "Unit_Price", "Date_Received", "Last_Order_Date", "Expiration_Date",
+"Warehouse_Location", "Sales_Volume", "Inventory_Turnover_Rate", "Status")
+VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+'''
+
+cursor.executemany(insert_query, tuples)
+connection.commit()
+
+cursor.close()
+connection.close()
