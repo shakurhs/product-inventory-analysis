@@ -2,35 +2,34 @@
 
 ## Repository Outline
 
-Penjelasan Mengenai Isi dari Tiap File dan Folder:
+Explanation about the content of each file and folder:
 
-1. hafizal_shakur_conceptual.txt - Pertanyaan dan jawaban dari conceptual problems
-2. hafizal_shakur_DAG_graph.jpg - Screen capture grafik DAG yang sedang berjalan
-3. hafizal_shakur_DAG.py - Program Python yang menjalankan Apache Airflow
-4. hafizal_shakur_data_clean.csv - Dataset yang dihasilkan setelah proses data cleaning menggunakan AIrflow
-5. hafizal_shakur_data_raw.csv - Dataset original yang akan dimasukkan ke PostGreSQL
-6. hafizal_shakur_ddl.txt - Syntax DDL dan DML untuk membuat tabel dan restore data pada PostGreSQL
-7. hafizal_shakur_GX.ipynb - Notebook untuk melakukan Data Validation dengan GreatExpectations
-8. Images - Folder gambar hasil dari screen capture mengenai grafik dan insight dari KIbana
+1. hafizal_shakur_DAG_graph.jpg - Screen capture of the DAG graph while it is running.
+2. hafizal_shakur_DAG.py - Python program that runs Apache Airflow.
+3. hafizal_shakur_data_clean.csv - Dataset generated after the data cleaning process using Airflow.
+4. hafizal_shakur_data_raw.csv - Original dataset to be inserted into PostgreSQL.
+5. hafizal_shakur_ddl.txt - DDL and DML syntax to create tables and restore data in PostgreSQL.
+6. hafizal_shakur_GX.ipynb - Notebook for Data Validation using GreatExpectations.
+7. Images - Folder containing screen captures of graphs and insights from Kibana.
 
 ## Problem Background
-Menurut sumber terjadi perubahan pada kebiasaan belanja masyarakat. Dimana masyarakat mulai meninggalkan kegiatan jual beli pada supermarket atau grocery store. Perubahan kebiasaan tersebut mulai dirasakan setelah pandemi Covid-19. Masyarakat lebih memilih untuk berbelanja secara online atau pergi ke minimarket terdekat. Terbukti pada beberapa tahun ini, minimarket yang memiliki nama besar seperti Alfamart dan Indomart meraup untung yang lebih besar jika dibandingkan dengan revenue pada supermarket/grocery store. Selain itu, pada sumber juga menyebutkan faktor lain yang berpengaruh pada daya beli masyarakat di sebuah supermarket adalah kondisi ekonomi.
+Recent data shows a significant shift in how people shop for daily needs. Since the pandemic, many customers have moved away from large supermarkets and grocery stores. Instead, they prefer shopping online or visiting small, local minimarkets that are closer to home. This change has caused a decrease in revenue for many large-scale retailers while smaller, more agile stores continue to grow. Additionally, global economic conditions are making customers more sensitive to prices.
 
-Oleh sebab itu, Dashboard/Report ini akan dibuat sebagai alat bantu untuk menganalisis strategi apa yang harus dilakukan oleh manajemen ABC Store dalam menghadapi kondisi saat ini. Analisis pada inventoris dari stock barang yang dimiliki ABC Store bertujuan untuk memberikan ide bisnis yang harus dilakukan seperti mendapatkan revenue sebesar-besarnya dan meminimalisir cost. Diantara analisisnya adalah sebagai berikut:
+This Dashboard and Report are designed to help ABC Store management analyze their current inventory and sales strategy. By understanding the inventory data, the business can find ways to maximize revenue and reduce unnecessary costs. The analysis focuses on:
 
-Mengetahui kategori produk pada inventaris ABC Store.
-Menampilkan penjualan produk pada kurun waktu satu tahun
-Membuat promosi pada item yang paling banyak dibeli masyarakat.
-Mengevaluasi kinerja dan harga produk dari supplier
+- Product Categories: Understanding what is currently in stock.
+- Sales Trends: Reviewing performance over a one-year period.
+- Customer Promotion: Identifying the most popular items to create effective marketing.
+- Supplier Management: Evaluating if suppliers are providing the best quality and prices.
 
 
 ## Project Output
 
-Produk yang dihasilkan dari project ini adalah program Airflow untuk melakukan data cleaning dan data saving, file dataset (csv) yang sudah dibersihkan, dan dashboard Kibana hasil analisis. 
+The products of this project are an Airflow program for data cleaning and data saving, a cleaned dataset file (csv), and a Kibana dashboard based on the analysis.
 
 ## Data
 
-Dataset merupakan data fiktif yang didapatkan dari website Kaggle. Dataset berisikan daftar inventory produk yang dimiliki oleh sebuah supermarket, terdiri atas 16 column dan 989 rows yang merupakan nama barang pada daftar inventory tersebut. Proses data cleaning dilakukan menggunakan Airflow sehingga missing value dan data duplicated sudah dihilangkan.
+The dataset is dummy data obtained from the Kaggle website. It contains a product inventory list from a supermarket, consisting of 16 columns and 989 rows of item names. The data cleaning process was handled using Airflow to ensure missing values and duplicated data were removed.
 
 
 ## Stacks
